@@ -27,17 +27,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  labels:
-    app: springboot-app
-    k8s-app: springboot-app
   name: springboot-app
 spec:
-  ports:
-  - name: http
-    port: 80
-    protocol: TCP
-    targetPort: 8085
-    nodeport: 30000
   type: NodePort
+  ports:
+    - port: 8085
+      targetPort: 8085
+      nodePort: 30000
   selector:
     app: springboot-app
