@@ -24,7 +24,7 @@ spec:
           protocol: TCP
         volumeMounts:
         - name: springboot-app
-          mountPath: /target  
+          mountPath: /  
       volumes:
       - name: springboot-app
         persistentVolumeClaim:
