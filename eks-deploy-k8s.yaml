@@ -14,8 +14,6 @@ spec:
       labels:
         app: springboot-app
     spec:
-      securityContext:
-        runAsUser: 0
       containers:
       - name: my-springboot-app
         image: 002595084825.dkr.ecr.eu-west-1.amazonaws.com/my-docker-repo:latest
@@ -31,6 +29,13 @@ spec:
       - name: springboot-app
         persistentVolumeClaim:
           claimName: springboot-pvc
+      initContainers:
+        - name: permissionfix
+          image: busybox
+          command: ["/bin/chmod","-R","777", "/*"]
+        volumeMounts:
+        - name: springboot-app
+          mountPath: /*  
             
 # service type NodePort       
 ---
