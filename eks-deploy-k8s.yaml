@@ -22,13 +22,7 @@ spec:
         - containerPort: 8085
           name: http
           protocol: TCP
-        volumeMounts:
-        - name: springboot-app
-          mountPath: /target  
-      volumes:
-      - name: springboot-app
-        persistentVolumeClaim:
-          claimName: springboot-pvc    
+            
 # service type NodePort       
 ---
 apiVersion: v1
