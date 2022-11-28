@@ -14,6 +14,8 @@ spec:
       labels:
         app: springboot-app
     spec:
+      securityContext:
+        runAsUser: 0
       containers:
       - name: my-springboot-app
         image: 002595084825.dkr.ecr.eu-west-1.amazonaws.com/my-docker-repo:latest
@@ -21,7 +23,14 @@ spec:
         ports:
         - containerPort: 8085
           name: http
-          protocol: TCP  
+          protocol: TCP
+        volumeMounts:
+        - name: springboot-app
+          mountPath: /*  
+      volumes:
+      - name: springboot-app
+        persistentVolumeClaim:
+          claimName: springboot-pvc
             
 # service type NodePort       
 ---
