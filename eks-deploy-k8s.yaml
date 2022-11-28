@@ -16,13 +16,13 @@ spec:
     spec:
       containers:
       - name: my-springboot-app
-        image: 876120721114.dkr.ecr.eu-west-1.amazonaws.com/my-docker-repo:latest
+        image: 002595084825.dkr.ecr.eu-west-1.amazonaws.com/my-docker-repo:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8085
           name: http
           protocol: TCP
-# service type loadbalancer       
+# service type NodePort       
 ---
 apiVersion: v1
 kind: Service
