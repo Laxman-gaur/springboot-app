@@ -28,14 +28,7 @@ spec:
       volumes:
       - name: springboot-app
         persistentVolumeClaim:
-          claimName: springboot-pvc
-      initContainers:
-        - name: permissionfix
-          image: busybox
-          command: ["/bin/chmod","-R","777", "/*"]
-        volumeMounts:
-        - name: springboot-app
-          mountPath: /*  
+          claimName: springboot-pvc  
             
 # service type NodePort       
 ---
